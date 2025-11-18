@@ -60,13 +60,12 @@ type XAxisOption struct {
 const defaultXAxisHeight = 30
 
 // NewXAxisOption returns a x axis option
-func NewXAxisOption(data []string, boundaryGap ...*bool) XAxisOption {
+func NewXAxisOption(data []string, fontSize float64, boundaryGap bool) XAxisOption {
 	opt := XAxisOption{
 		Data: data,
 	}
-	if len(boundaryGap) != 0 {
-		opt.BoundaryGap = boundaryGap[0]
-	}
+	opt.FontSize = fontSize
+	opt.BoundaryGap = &boundaryGap
 	return opt
 }
 
