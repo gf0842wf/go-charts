@@ -79,6 +79,7 @@ type ChartOption struct {
 	Children []ChartOption
 	// The value formatter
 	ValueFormatter ValueFormatter
+	DPI            float64
 }
 
 // OptionFunc option function
@@ -181,6 +182,12 @@ func WidthOptionFunc(width int) OptionFunc {
 	}
 }
 
+func DPIOptionFunc(DPI float64) OptionFunc {
+	return func(opt *ChartOption) {
+		opt.DPI = DPI
+	}
+}
+
 // HeightOptionFunc set height of chart
 func HeightOptionFunc(height int) OptionFunc {
 	return func(opt *ChartOption) {
@@ -203,10 +210,11 @@ func BoxOptionFunc(box Box) OptionFunc {
 }
 
 // PieSeriesShowLabel set pie series show label
-func PieSeriesShowLabel() OptionFunc {
+func PieSeriesShowLabel(fontSize float64) OptionFunc {
 	return func(opt *ChartOption) {
 		for index := range opt.SeriesList {
 			opt.SeriesList[index].Label.Show = true
+			opt.SeriesList[index].Label.FontSize = fontSize
 		}
 	}
 }

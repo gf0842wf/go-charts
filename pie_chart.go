@@ -276,9 +276,13 @@ func (p *pieChart) render(result *defaultRenderResult, seriesList SeriesList) (B
 		seriesPainter.MoveTo(s.lineBranchX, s.lineBranchY)
 		seriesPainter.LineTo(s.lineEndX, s.lineEndY)
 		seriesPainter.Stroke()
+		fixLabelFontSize := float64(labelFontSize)
+		if len(seriesList) > 0 {
+			fixLabelFontSize = float64(seriesList[0].Label.FontSize)
+		}
 		textStyle := Style{
 			FontColor: theme.GetTextColor(),
-			FontSize:  labelFontSize,
+			FontSize:  fixLabelFontSize,
 			Font:      opt.Font,
 		}
 		if !s.series.Label.Color.IsZero() {

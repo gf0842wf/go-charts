@@ -54,6 +54,7 @@ type PainterOptions struct {
 	Height int
 	// The font for painter
 	Font *truetype.Font
+	DPI  float64
 }
 
 type PainterOption func(*Painter)
@@ -188,6 +189,10 @@ func NewPainter(opts PainterOptions, opt ...PainterOption) (*Painter, error) {
 	if p.theme == nil {
 		p.theme = NewTheme(ThemeLight)
 	}
+	if opts.DPI < 1 {
+		opts.DPI = 100
+	}
+	p.render.SetDPI(opts.DPI)
 	return p, nil
 }
 func (p *Painter) setOptions(opts ...PainterOption) {

@@ -294,6 +294,7 @@ func Render(opt ChartOption, opts ...OptionFunc) (*Painter, error) {
 			Width:  opt.Width,
 			Height: opt.Height,
 			Font:   opt.font,
+			DPI:    opt.DPI,
 		})
 		if err != nil {
 			return nil, err
