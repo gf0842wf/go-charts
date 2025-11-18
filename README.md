@@ -1,7 +1,7 @@
 # go-charts
 
-[![license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/vicanso/go-charts/blob/master/LICENSE)
-[![Build Status](https://github.com/vicanso/go-charts/workflows/Test/badge.svg)](https://github.com/vicanso/go-charts/actions)
+[![license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/gf0842wf/go-charts/blob/master/LICENSE)
+[![Build Status](https://github.com/gf0842wf/go-charts/workflows/Test/badge.svg)](https://github.com/gf0842wf/go-charts/actions)
 
 [中文](./README_zh.md)
 
@@ -33,7 +33,7 @@ More examples can be found in the [./examples/](./examples/) directory.
 package main
 
 import (
-	charts "github.com/vicanso/go-charts/v2"
+	charts "github.com/gf0842wf/go-charts/v2"
 )
 
 func main() {
@@ -99,7 +99,7 @@ func main() {
 package main
 
 import (
-	"github.com/vicanso/go-charts/v2"
+	"github.com/gf0842wf/go-charts/v2"
 )
 
 func main() {
@@ -174,7 +174,7 @@ func main() {
 package main
 
 import (
-	"github.com/vicanso/go-charts/v2"
+	"github.com/gf0842wf/go-charts/v2"
 )
 
 func main() {
@@ -231,7 +231,7 @@ func main() {
 package main
 
 import (
-	"github.com/vicanso/go-charts/v2"
+	"github.com/gf0842wf/go-charts/v2"
 )
 
 func main() {
@@ -286,7 +286,7 @@ func main() {
 package main
 
 import (
-	"github.com/vicanso/go-charts/v2"
+	"github.com/gf0842wf/go-charts/v2"
 )
 
 func main() {
@@ -344,7 +344,7 @@ func main() {
 package main
 
 import (
-	"github.com/vicanso/go-charts/v2"
+	"github.com/gf0842wf/go-charts/v2"
 )
 
 func main() {
@@ -384,7 +384,7 @@ func main() {
 package main
 
 import (
-	"github.com/vicanso/go-charts/v2"
+	"github.com/gf0842wf/go-charts/v2"
 )
 
 func main() {
@@ -449,7 +449,7 @@ func main() {
 package main
 
 import (
-	"github.com/vicanso/go-charts/v2"
+	"github.com/gf0842wf/go-charts/v2"
 )
 
 func main() {
