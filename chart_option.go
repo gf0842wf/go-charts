@@ -157,7 +157,7 @@ func XAxisOptionFunc(xAxisOption XAxisOption) OptionFunc {
 // XAxisDataOptionFunc set x axis data of chart
 func XAxisDataOptionFunc(data []string, fontSize float64) OptionFunc {
 	return func(opt *ChartOption) {
-		opt.XAxis = NewXAxisOption(data, fontSize, false)
+		opt.XAxis = NewXAxisOption(data, fontSize, true)
 	}
 }
 
