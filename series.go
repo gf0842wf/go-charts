@@ -303,7 +303,7 @@ func NewLabelFormatter(seriesNames []string, layout string) LabelFormatter {
 		// 如果无percent的则设置为<0
 		percentText := ""
 		if percent >= 0 {
-			percentText = humanize.FtoaWithDigits(percent*100, 2) + "%"
+			percentText = humanize.FtoaWithDigits(percent*100, 1) + "%"
 		}
 		valueText := humanize.FtoaWithDigits(value, 2)
 		name := ""

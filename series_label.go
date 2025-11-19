@@ -49,6 +49,7 @@ type LabelValue struct {
 	FontSize float64
 	Orient   string
 	Offset   Box
+	Rate     float64
 }
 
 type SeriesLabelPainter struct {
@@ -85,7 +86,7 @@ func (o *SeriesLabelPainter) Add(value LabelValue) {
 	if distance == 0 {
 		distance = 5
 	}
-	text := NewValueLabelFormatter(o.seriesNames, label.Formatter)(value.Index, value.Value, -1)
+	text := NewValueLabelFormatter(o.seriesNames, label.Formatter)(value.Index, value.Value, value.Rate)
 	labelStyle := Style{
 		FontColor: o.theme.GetTextColor(),
 		FontSize:  labelFontSize,

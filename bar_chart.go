@@ -130,6 +130,11 @@ func (b *barChart) render(result *defaultRenderResult, seriesList SeriesList) (B
 			rendererList = append(rendererList, labelPainter)
 		}
 
+		tt := float64(0)
+		for _, ti := range series.Data {
+			tt += ti.Value
+		}
+
 		for j, item := range series.Data {
 			if j >= xRange.divideCount {
 				continue
@@ -196,6 +201,7 @@ func (b *barChart) render(result *defaultRenderResult, seriesList SeriesList) (B
 					}
 				}
 			}
+			p := item.Value / tt
 			labelPainter.Add(LabelValue{
 				Index: index,
 				Value: item.Value,
@@ -206,6 +212,7 @@ func (b *barChart) render(result *defaultRenderResult, seriesList SeriesList) (B
 				FontColor: fontColor,
 				Offset:    series.Label.Offset,
 				FontSize:  series.Label.FontSize,
+				Rate:      p,
 			})
 		}
 
