@@ -156,7 +156,7 @@ func defaultRender(p *Painter, opt defaultRenderOption) (*defaultRenderResult, e
 		}
 		p = p.Child(PainterPaddingOption(Box{
 			// 标题下留白
-			Top: top + 20,
+			Top: top + opt.TitleOption.MarginBottom,
 		}))
 	}
 

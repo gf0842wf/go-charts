@@ -53,6 +53,7 @@ type TitleOption struct {
 	SubtextFontSize float64
 	// The subtext font color of label
 	SubtextFontColor Color
+	MarginBottom     int
 }
 
 type titleMeasureOption struct {

@@ -24,6 +24,7 @@ package charts
 
 import (
 	"math"
+	"strings"
 )
 
 const defaultAxisDivideCount = 6
@@ -55,10 +56,13 @@ type AxisRangeOption struct {
 func NewRange(opt AxisRangeOption) axisRange {
 	max := opt.Max
 	min := opt.Min
+	divideCount := opt.DivideCount
+
+	// fmt.Println("range before", divideCount, min, max)
 
 	max += math.Abs(max * 0.1)
 	min -= math.Abs(min * 0.1)
-	divideCount := opt.DivideCount
+
 	r := math.Abs(max - min)
 
 	// 最小单位计算
@@ -94,6 +98,38 @@ func NewRange(opt AxisRangeOption) axisRange {
 	if max > expectMax {
 		max = float64(ceilFloatToInt(expectMax))
 	}
+
+	// fmt.Println("range after", divideCount, min, max)
+
+	if max != 0 {
+		divideCount = 5
+		min = 0
+		max = opt.Max
+
+		if max == 1 {
+			max = 1
+			divideCount = 5
+		} else if max == 2 {
+			max = 2
+			divideCount = 5
+		} else if max == 3 {
+			max = 3
+			divideCount = 3
+		} else if max == 4 {
+			max = 4
+			divideCount = 4
+		} else if max > 6 && max <= 10 {
+			max = 10
+		} else if max > 50 {
+			multi5 := int(max) / 5 * 5
+			if max > float64(multi5) {
+				max = float64(multi5) + 5
+			}
+		}
+
+	}
+	// fmt.Println("range fix", divideCount, min, max)
+
 	return axisRange{
 		p:           opt.Painter,
 		divideCount: divideCount,
@@ -115,6 +151,9 @@ func (r axisRange) Values() []string {
 	for i := 0; i <= r.divideCount; i++ {
 		v := r.min + float64(i)*offset
 		value := formatter(v)
+		if strings.Contains(value, ".") && strings.HasSuffix(value, "0") {
+			value = value[0 : len(value)-1]
+		}
 		values = append(values, value)
 	}
 	return values
